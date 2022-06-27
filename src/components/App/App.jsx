@@ -1,38 +1,42 @@
 import React, { Suspense, lazy, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import ContactForm from '../ContactForm/ContactForm';
-import  Filter from '../Filter/Filter';
-import  ContactList  from '../ContactList/ContactList';
-import { Section, TitleH1 } from './App.styled';
-import Navigation from '../Navigation/Navigation';
+import { useDispatch } from 'react-redux';
+import authOperations from 'Redux/auth/auth-operations';
+import AppBar from 'components/AppBar/AppBar';
+import PrivateRoute from 'components/PrivateRoute';
+import PublicRoute from 'components/PublicRoute';
 
-export function App() {
-
+export default function App() {
+  const dispatch = useDispatch();
+  
+  useEffect(() => {
+  dispatch(authOperations.fetchCurrentUser())
+  }, [dispatch]);
+  
   const HomePage = lazy(() => import('../views/HomePage/HomePage'));
   const LoginPage = lazy(() => import('../views/LoginPage/LoginPage'));
   const RegisterPage = lazy(() => import('../views/RegisterPage/RegisterPage'));
+  const Contacts = lazy(() => import('../views/Contacts/Contacts'));
   
   return (
     <>
-      <Navigation />
+      <AppBar />
        <Suspense fallback={<div>Loading...Please wait..</div>}>
-      <Routes>
-      <Route path="/" exact element={<HomePage />} />
-
+        <Routes>
+          <Route element={<PublicRoute/>}>
+            <Route path="/" element={<HomePage/>}/>
+          </Route>
+          <Route element={<PublicRoute restricted/>}>
+            <Route path="/register"  element={<RegisterPage />}/>
+          </Route>
+          <Route element={<PublicRoute redirectTo="/contacts" restricted/>}>
+            <Route path="/login" element={<LoginPage />}/>
+          </Route>
+          <Route element={<PrivateRoute redirectTo="/login"/>}>
+            <Route path="/login" element={<Contacts />}/>
+          </Route>
         </Routes>
         </Suspense>
-
-      {/* <Section>
-        <TitleH1>Phonebook</TitleH1>
-        <ContactForm />
-      </Section>
-      <Section>
-        <TitleH1>Contacts</TitleH1>
-        <Filter />
-        <ContactList />
-      </Section> */}
     </>
   );
 }
-
-export default App;

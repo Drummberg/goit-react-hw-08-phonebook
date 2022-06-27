@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import authSelectors from './auth-selectors';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-axios.defaults.baseURL = 'https://goit-phonebook-api.herokuapp.com';
+axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
 const token = {
     set(token) {
@@ -16,10 +16,56 @@ const token = {
 const register = createAsyncThunk('auth/register', async credentials => {
     try {
         const { data } = await axios.post('/users/signup', credentials);
+        token.set(data.token);
         return data;
     } catch (error) {
-        
+        return Notify.failure('Please enter the correct data');
     }
-})
+});
 
-export default register;
+const logIn = createAsyncThunk('auth/login', async credentials => {
+  try {
+    const { data } = await axios.post('/users/login', credentials);
+    token.set(data.token);
+    return data;
+  } catch (error) {
+    return Notify.failure('Please enter the correct data');
+  }
+});
+
+const logOut = createAsyncThunk('auth/logout', async () => {
+  try {
+    await axios.post('/users/logout');
+    token.unset();
+  } catch (error) {
+    return Notify.failure('Something went wrong');
+  }
+});
+
+const fetchCurrentUser = createAsyncThunk(
+  'auth/refresh',
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue();
+      }
+      token.set(persistedToken);
+    try {
+      const { data } = await axios.get('/users/current');
+      return data;
+    } catch (error) {
+      return Notify.failure('Something went wrong');
+    }
+  },
+);
+
+
+const authOperations = {
+    register,
+    logIn,
+    logOut,
+    fetchCurrentUser
+}
+export default authOperations;

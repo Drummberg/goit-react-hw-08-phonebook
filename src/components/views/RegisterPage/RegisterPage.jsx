@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { authOperations } from '../../../Redux/auth/auth-operations';
+import authOperations from '../../../Redux/auth/auth-operations';
+import { Title, Form, Label, Input, Button } from './RegisterPage.styled';
+
 
 const initialState = {
   name: '',
@@ -27,42 +29,44 @@ export default function RegisterPage() {
     };
     
     return (
-    <div>
-      <form onSubmit={handleSubmit} autoComplete="off" >
-        <label>
-          Имя
-          <input
+     <Form onSubmit={handleSubmit} >
+        <Title>Register</Title>
+        <Label>
+          Name
+          <Input
             type="text"
             name="name"
             value={user.name}
+            placeholder="Enter name"
             onChange={handleChange}
             />
-        </label>
+        </Label>
 
-        <label>
-          Почта
-          <input
+        <Label>
+          Email
+          <Input
             type="email"
             name="email"
             value={user.email}
+            placeholder="Enter email"
             onChange={handleChange}
             />
-        </label>
+        </Label>
 
-        <label>
-          Пароль
-          <input
+        <Label>
+          Password
+          <Input
             type="password"
             name="password"
             value={user.password}
+            placeholder="Enter password"
             onChange={handleChange}
             />
-        </label>
+        </Label>
 
-        <button type="submit">
-          Регистрация
-        </button>
-      </form>
-    </div>
+        <Button type="submit">
+          Register
+        </Button>
+      </Form>
     )
 } 

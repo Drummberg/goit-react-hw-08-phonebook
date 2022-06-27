@@ -1,11 +1,16 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
+import PropTypes  from 'prop-types';
 import { useSelector } from 'react-redux';
+import authSelectors from 'Redux/auth/auth-selectors';
 
-export default function PrivateRoute ({children, ...routeProps}) {
-    return (
-        <Route {...routeProps}>
-            
-     </Route>
- )
+export default function PrivateRoute ({redirectTo = '/'}) {
+    const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
+  return (
+    isLoggedIn ? <Outlet /> : <Navigate replace to={redirectTo} />
+  );
 }
+
+PrivateRoute.propTypes = {
+  redirectTo: PropTypes.string,
+};
