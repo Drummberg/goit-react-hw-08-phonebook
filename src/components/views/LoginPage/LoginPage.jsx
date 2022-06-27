@@ -29,10 +29,10 @@ export default function LoginPage() {
   };
 
   return (
-    <Card style={{ width: '500px', margin: '30px auto' }}>
-      <Card.Header as="h2"> Sign in</Card.Header>
+    <Card style={{ width: '400px', margin: '150px auto', borderStyle: 'none' }}>
+      <Card.Header as="h2" style={{background: '#000', color: 'white', paddingLeft: '150px'}}> Sign in</Card.Header>
       <Card.Body>
-        <Form onSubmit={handleSubmit} autoComplete="off">
+        <Form onSubmit={handleSubmit} autoComplete="on">
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>
               Email
@@ -42,7 +42,7 @@ export default function LoginPage() {
                 name="email"
                 value={email}
                 onChange={handleChange}
-                style={{ width: '400px' }}
+                style={{ width: '350px' }}
               />
             </Form.Label>
           </Form.Group>
@@ -55,11 +55,11 @@ export default function LoginPage() {
                 name="password"
                 value={password}
                 onChange={handleChange}
-                style={{ width: '400px' }}
+                style={{ width: '350px' }}
               />
             </Form.Label>
           </Form.Group>
-          <Button variant="primary" type="submit">
+          <Button variant="dark" type="submit" style={{background: '#000', color: 'white',marginLeft:'150px'}}>
             Log in
           </Button>
         </Form>

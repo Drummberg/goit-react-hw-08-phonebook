@@ -34,7 +34,7 @@ export default function App() {
             <Route path="/login" element={<LoginPage />}/>
           </Route>
           <Route element={<PrivateRoute redirectTo="/login"/>}>
-            <Route path="/login" element={<Contacts />}/>
+            <Route path="/contacts" element={<Contacts />}/>
           </Route>
         </Routes>
         </Suspense>

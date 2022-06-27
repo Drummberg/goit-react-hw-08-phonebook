@@ -1,29 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {useDeleteContactsMutation } from '../../Redux/contactsApi';
-import { ItemLi, Button, Link, Img } from './ContactItem.styled';
+import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import ListGroup from 'react-bootstrap/ListGroup';
+import Card from 'react-bootstrap/Card';
 
-export const ContactItem = ({ id, name, number, avatar}) => {
+export const ContactItem = ({ id, name, number}) => {
   const [deleteContact, {isLoading}] = useDeleteContactsMutation();
 
-  console.log(avatar);
   const onDeleteContact = id => {
     deleteContact(id);
   }
   return (
-    <ItemLi>
-      <Link href="tel:{number}">
-        <Img src={avatar} alt="avatar" width={35}></Img>
-        {name}: {number}
-      </Link>
+    <ListGroup.Item key={id}>
+      <Row>
+        <Col>
+          <Card.Text style={{ textAlign: 'left' }}>{name}</Card.Text>
+          <Card.Text style={{ textAlign: 'left' }}>tel.:{number}</Card.Text>
+        </Col>
+        <Col>
       <Button
+        variant="dark"
         type="button"
         onClick={() => onDeleteContact(id)}
         disabled={isLoading}     
       >
         Delete
-      </Button>
-    </ItemLi>
+          </Button>
+        </Col>
+      </Row>
+    </ListGroup.Item>
   );
 };
 

@@ -14,13 +14,13 @@ export default function AppBar() {
         <Navbar
             collapseOnSelect
             expand="lg"
-            bg="primary"
-            variant="light"
+            bg="dark"
+            variant="dark"
             fixed="top"
         >
             <Container>
-                <NavbarToggle aria-controls="responsive-navbar-nav" />
-                <Navbar.Collapse id="responsive-navbar-nav">
+                <NavbarToggle aria-controls="navbar-dark-example" />
+                <Navbar.Collapse id="navbar-dark-example">
                 <Nav className="me-auto" variant="tabs" defaultActiveKey="/">
             <Navigation />
                     </Nav>

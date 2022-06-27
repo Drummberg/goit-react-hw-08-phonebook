@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useGetContactsQuery, useAddContactsMutation } from '../../Redux/contactsApi';
-import { Form, Label, Input, Button } from './ContactForm.styled';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Card from 'react-bootstrap/Card'
 
 export default function ContactForm() {
   const { data: contacts } = useGetContactsQuery();
@@ -40,9 +42,15 @@ export default function ContactForm() {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Label>Name</Label>
-      <Input
+    <Card style={{ width: '400px', margin: '50px auto', borderStyle: 'none' }}>
+      <Card.Header as="h2" style={{ background: '#000', color: 'white', paddingLeft: '100px' }}> New contact</Card.Header>
+      <Card.Body>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group className="mb-4" controlId="formBasicText">
+          <Form.Label>
+              Name
+          </Form.Label>
+      <Form.Control
         type="text"
         name="name"
         value={name}
@@ -51,10 +59,9 @@ export default function ContactForm() {
         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
         required
-      />
-
-      <Label>Number</Label>
-      <Input
+              />
+      <Form.Label>Number</Form.Label>
+      <Form.Control
         type="tel"
         name="number"
         value={number}
@@ -64,9 +71,14 @@ export default function ContactForm() {
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         required
       />
-
-      <Button type="submit" disabled={isLoading}>Add contact</Button>
-    </Form>
+      </Form.Group>
+          <Button
+            variant="dark"
+            type="submit"
+            style={{ background: '#000', color: 'white', marginLeft: '130px' }} disabled={isLoading}>Add contact</Button>
+        </Form>
+        </Card.Body>
+      </Card>
   );
 }
 
