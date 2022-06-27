@@ -1,5 +1,5 @@
 import React from 'react';
-import authSelectors from 'Redux/auth/auth-selectors';
+import authSelectors from '../../Redux/auth/auth-selectors';
 import { NavLink } from 'react-router-dom';
 import { Nav } from 'react-bootstrap';
 import Row from 'react-bootstrap/Row';

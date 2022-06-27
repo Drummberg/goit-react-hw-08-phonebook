@@ -12,11 +12,11 @@ export default function AppBar() {
 
     return (
         <Navbar
-      collapseOnSelect
-      expand="lg"
-      bg="primary"
-      variant="light"
-      fixed="top"
+            collapseOnSelect
+            expand="lg"
+            bg="primary"
+            variant="light"
+            fixed="top"
         >
             <Container>
                 <NavbarToggle aria-controls="responsive-navbar-nav" />

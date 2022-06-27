@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import authOperations from 'Redux/auth/auth-operations';
 import AppBar from 'components/AppBar/AppBar';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import PrivateRoute from 'components/PrivateRoute';
 import PublicRoute from 'components/PublicRoute';
 
