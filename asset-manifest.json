@@ -1,13 +1,26 @@
 {
   "files": {
     "main.css": "/goit-react-hw-08-phonebook/static/css/main.1b753496.css",
-    "main.js": "/goit-react-hw-08-phonebook/static/js/main.0e5fc6d1.js",
+    "main.js": "/goit-react-hw-08-phonebook/static/js/main.cc31bf28.js",
+    "static/js/17.6a7e4247.chunk.js": "/goit-react-hw-08-phonebook/static/js/17.6a7e4247.chunk.js",
+    "static/js/480.ddc14c96.chunk.js": "/goit-react-hw-08-phonebook/static/js/480.ddc14c96.chunk.js",
+    "static/js/256.60620086.chunk.js": "/goit-react-hw-08-phonebook/static/js/256.60620086.chunk.js",
+    "static/js/362.f327dbaa.chunk.js": "/goit-react-hw-08-phonebook/static/js/362.f327dbaa.chunk.js",
+    "static/js/810.d8143d21.chunk.js": "/goit-react-hw-08-phonebook/static/js/810.d8143d21.chunk.js",
+    "static/js/351.aa79a3e8.chunk.js": "/goit-react-hw-08-phonebook/static/js/351.aa79a3e8.chunk.js",
+    "static/media/avatar.jpg": "/goit-react-hw-08-phonebook/static/media/avatar.e2cd5f456c38cb32591f.jpg",
     "index.html": "/goit-react-hw-08-phonebook/index.html",
     "main.1b753496.css.map": "/goit-react-hw-08-phonebook/static/css/main.1b753496.css.map",
-    "main.0e5fc6d1.js.map": "/goit-react-hw-08-phonebook/static/js/main.0e5fc6d1.js.map"
+    "main.cc31bf28.js.map": "/goit-react-hw-08-phonebook/static/js/main.cc31bf28.js.map",
+    "17.6a7e4247.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/17.6a7e4247.chunk.js.map",
+    "480.ddc14c96.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/480.ddc14c96.chunk.js.map",
+    "256.60620086.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/256.60620086.chunk.js.map",
+    "362.f327dbaa.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/362.f327dbaa.chunk.js.map",
+    "810.d8143d21.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/810.d8143d21.chunk.js.map",
+    "351.aa79a3e8.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/351.aa79a3e8.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1b753496.css",
-    "static/js/main.0e5fc6d1.js"
+    "static/js/main.cc31bf28.js"
   ]
 }
