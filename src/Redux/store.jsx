@@ -1,4 +1,4 @@
-import { configureStore, createSerializableStateInvariantMiddleware, } from '@reduxjs/toolkit';
+import { configureStore} from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import {
   persistStore,
@@ -10,8 +10,6 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import thunk from 'redux-thunk';
-import thunkMiddleware from 'redux-thunk';
 
 import storage from 'redux-persist/lib/storage';
 import authReducer from './auth/auth-slice';
@@ -24,11 +22,14 @@ const authPersistConfig = {
   whitelist: ['token'],
 };
 
-const serializableMiddleware = createSerializableStateInvariantMiddleware({
-  ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-});
-
-const middleware = [thunk, serializableMiddleware, thunkMiddleware];
+const middleware = getDefaultMiddleware =>  [
+  ...getDefaultMiddleware({
+    serializableCheck: {
+      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+    },
+  }),
+  contactsApi.middleware,
+];
 
 const store = configureStore({
   reducer: {

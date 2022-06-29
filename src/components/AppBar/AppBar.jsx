@@ -14,17 +14,17 @@ export default function AppBar() {
         <Navbar
             collapseOnSelect
             expand="lg"
-            bg="dark"
-            variant="dark"
+            bg="seagreen"
+            variant="info"
             fixed="top"
         >
             <Container>
-                <NavbarToggle aria-controls="navbar-dark-example" />
-                <Navbar.Collapse id="navbar-dark-example">
+                <NavbarToggle aria-controls="navbar-seagreen-example" />
+                <Navbar.Collapse id="navbar-seagreen-example">
                 <Nav className="me-auto" variant="tabs" defaultActiveKey="/">
             <Navigation />
                     </Nav>
-                <Nav variant="tabs">{isLoggedIn ? <UserMenu /> : <AuthNav />}</Nav>
+                <Nav fill variant="tabs">{isLoggedIn ? <UserMenu /> : <AuthNav />}</Nav>
                 </Navbar.Collapse>
             </Container>
     </Navbar>

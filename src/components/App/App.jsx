@@ -11,7 +11,7 @@ export default function App() {
   const dispatch = useDispatch();
   
   useEffect(() => {
-  dispatch(authOperations.fetchCurrentUser())
+  dispatch(authOperations.refresh())
   }, [dispatch]);
   
   const HomePage = lazy(() => import('../views/HomePage/HomePage'));

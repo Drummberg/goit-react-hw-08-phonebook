@@ -19,7 +19,7 @@ const register = createAsyncThunk('auth/register', async credentials => {
         token.set(data.token);
         return data;
     } catch (error) {
-        return Notify.failure('Please enter the correct data');
+        return Notify.failure('Please enter the correct info');
     }
 });
 
@@ -29,7 +29,7 @@ const logIn = createAsyncThunk('auth/login', async credentials => {
     token.set(data.token);
     return data;
   } catch (error) {
-    return Notify.failure('Please enter the correct data');
+    return Notify.failure('Please enter the correct info');
   }
 });
 
@@ -42,7 +42,7 @@ const logOut = createAsyncThunk('auth/logout', async () => {
   }
 });
 
-const fetchCurrentUser = createAsyncThunk(
+const refresh = createAsyncThunk(
   'auth/refresh',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
@@ -51,12 +51,14 @@ const fetchCurrentUser = createAsyncThunk(
     if (persistedToken === null) {
       return thunkAPI.rejectWithValue();
       }
+      
       token.set(persistedToken);
     try {
       const { data } = await axios.get('/users/current');
       return data;
     } catch (error) {
-      return Notify.failure('Something went wrong');
+        console.error(error);
+    //   return Notify.failure('Something went wrong');
     }
   },
 );
@@ -66,6 +68,6 @@ const authOperations = {
     register,
     logIn,
     logOut,
-    fetchCurrentUser
+    refresh
 }
 export default authOperations;

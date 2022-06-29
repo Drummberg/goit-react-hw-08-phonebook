@@ -22,8 +22,8 @@ export default function ContactList () {
     <Card style={{ width: '400px', margin: '50px auto', borderStyle: 'none' }}>
       <Card.Header as="h2" style={{ background: '#000', color: 'white', paddingLeft: '100px' }}>Contacts List</Card.Header>
       <Card.Body>
-    <ListGroup style={{ width: '470px', margin: '10px auto' }}>
-      {contacts && getContacts.map(({ id, name, phone }) => (
+        <ListGroup style={{ width: '470px', margin: '10px auto' }}>
+          {contacts && getContacts.map(({ id, name, phone }) => (
         <ContactItem
           key={id}
           id={id}

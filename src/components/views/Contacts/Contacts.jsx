@@ -4,11 +4,12 @@ import Container from 'react-bootstrap/Container';
 import ContactForm from 'components/ContactForm/ContactForm';
 import Filter from 'components/Filter/Filter';
 import ContactList from 'components/ContactList/ContactList';
+import { H2 } from '../../views/Contacts/Contacts.styled';
 
 export default function Contacts() {
   return (
     <Container className="mt-4">
-      <h2>Phonebook</h2>
+      <H2>My phonebook</H2>
       <Row>
         <Col>
           <ContactForm />

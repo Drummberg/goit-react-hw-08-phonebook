@@ -1,7 +1,8 @@
 import React from 'react';
+import { H1 } from './HomePage.styled';
 
 const HomePage = () => {
-  return <h1>HomePage</h1>;
+  return <H1>Welcome!;)</H1>;
 };
 
 export default HomePage;

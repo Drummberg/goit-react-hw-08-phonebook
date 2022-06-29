@@ -30,7 +30,7 @@ export default function LoginPage() {
 
   return (
     <Card style={{ width: '400px', margin: '150px auto', borderStyle: 'none' }}>
-      <Card.Header as="h2" style={{background: '#000', color: 'white', paddingLeft: '150px'}}> Sign in</Card.Header>
+      <Card.Header as="h2" style={{background: 'seagreen', color: 'white', paddingLeft: '150px'}}> Sign in</Card.Header>
       <Card.Body>
         <Form onSubmit={handleSubmit} autoComplete="on">
           <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -59,7 +59,7 @@ export default function LoginPage() {
               />
             </Form.Label>
           </Form.Group>
-          <Button variant="dark" type="submit" style={{background: '#000', color: 'white',marginLeft:'150px'}}>
+          <Button variant="dark" type="submit" style={{background: 'seagreen', color: 'white', marginLeft:'150px', borderStyle: 'none'}}>
             Log in
           </Button>
         </Form>

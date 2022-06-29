@@ -10,8 +10,9 @@ export default function ContactForm() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
-  const handleSubmit = event => {
+    const handleSubmit = event => {
     event.preventDefault();
+    
     if (contacts.find(contact => contact.name === name)) {
             return alert(`${name} is already in the contact list`);
         }
@@ -43,7 +44,7 @@ export default function ContactForm() {
 
   return (
     <Card style={{ width: '400px', margin: '50px auto', borderStyle: 'none' }}>
-      <Card.Header as="h2" style={{ background: '#000', color: 'white', paddingLeft: '100px' }}> New contact</Card.Header>
+      <Card.Header as="h2" style={{ background: 'seagreen', color: 'white', paddingLeft: '100px' }}> New contact</Card.Header>
       <Card.Body>
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-4" controlId="formBasicText">
@@ -75,7 +76,7 @@ export default function ContactForm() {
           <Button
             variant="dark"
             type="submit"
-            style={{ background: '#000', color: 'white', marginLeft: '130px' }} disabled={isLoading}>Add contact</Button>
+            style={{ background: 'seagreen', color: 'white', marginLeft: '130px', borderStyle: 'none' }} disabled={isLoading}>Add contact</Button>
         </Form>
         </Card.Body>
       </Card>

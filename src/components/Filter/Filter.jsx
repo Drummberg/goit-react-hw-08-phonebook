@@ -14,7 +14,7 @@ export default function Filter() {
 
   return (
     <Card style={{ width: '400px', margin: '40px auto', borderStyle: 'none' }}>
-      <Card.Header as="h2" style={{ background: '#000', color: 'white', paddingLeft: '100px' }}>Find contacts</Card.Header>
+      <Card.Header as="h2" style={{ background: 'seagreen', color: 'white', paddingLeft: '100px' }}>Find contacts</Card.Header>
     <Card.Body>
         <Form.Control
           type="text"
