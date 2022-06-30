@@ -20,15 +20,15 @@ export default function ContactList () {
   
   return (
     <Card style={{ width: '400px', margin: '50px auto', borderStyle: 'none' }}>
-      <Card.Header as="h2" style={{ background: '#000', color: 'white', paddingLeft: '100px' }}>Contacts List</Card.Header>
+      <Card.Header as="h2" style={{ background: 'seagreen', color: 'white', paddingLeft: '130px' }}>Contacts</Card.Header>
       <Card.Body>
-        <ListGroup style={{ width: '470px', margin: '10px auto' }}>
-          {contacts && getContacts.map(({ id, name, phone }) => (
+        <ListGroup style={{ width: '370px', margin: '10px auto' }}>
+          {contacts && getContacts.map(({ id, name, number }) => (
         <ContactItem
           key={id}
           id={id}
           name={name}
-          number={phone}
+          number={number}
           />
       ))}
         </ListGroup>

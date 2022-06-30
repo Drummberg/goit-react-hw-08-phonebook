@@ -6,6 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Card from 'react-bootstrap/Card';
+import avatar from '../../components/image/avatar.jpg';
 
 export const ContactItem = ({ id, name, number}) => {
   const [deleteContact, {isLoading}] = useDeleteContactsMutation();
@@ -17,15 +18,17 @@ export const ContactItem = ({ id, name, number}) => {
     <ListGroup.Item key={id}>
       <Row>
         <Col>
-          <Card.Text style={{ textAlign: 'left' }}>{name}</Card.Text>
+          <Card.Text style={{ textAlign: 'left' }} className="rounded-circle me-3" src={avatar} alt="avatar">{name}</Card.Text>
           <Card.Text style={{ textAlign: 'left' }}>tel.:{number}</Card.Text>
         </Col>
         <Col>
       <Button
-        variant="dark"
+        variant="outline-danger"
         type="button"
         onClick={() => onDeleteContact(id)}
-        disabled={isLoading}     
+            disabled={isLoading}
+            style={{ marginTop: '20px', marginLeft: '80px', }}
+            
       >
         Delete
           </Button>
