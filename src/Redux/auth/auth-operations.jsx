@@ -56,7 +56,7 @@ const refresh = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
       return data;
     } catch (error) {
         console.error(error);
-    //   return Notify.failure('Something went wrong');
+      return Notify.failure('Something went wrong');
     }
   },
 );
